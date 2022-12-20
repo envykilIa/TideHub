@@ -277,3 +277,225 @@ if game.PlaceId == (1862413075) then
     })
     end
 end
+
+if game.PlaceId == (2512643572) then
+    -- Vars
+    local eggType = "eggType"
+    
+    local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+    local Window = Rayfield:CreateWindow({
+        Name = "#Tide Hub - Bubble Gum Simulator",
+	    LoadingTitle = "Loading #Tide Hub",
+	    LoadingSubtitle = "By | fortunatesouls#8803",
+	    ConfigurationSaving = {
+	        Enabled = true,
+		    FolderName = nil,
+		    FileName = "TideHub"
+	},
+	Discord = {
+	    Enabled = false,
+        Invite = "n2QxZaMMtC",
+        RememberJoins = true
+    },
+	KeySystem = false,
+	KeySettings = {
+		Title = "Tide Hub Key System",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/n2QxZaMMtC)",
+		FileName = "TideKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "#TideHub"
+	}
+})
+
+local Tab = Window:CreateTab("Credits", 7072706216)
+
+local Button = Tab:CreateButton({
+   Name = "Copy Discord Link",
+   Callback = function()
+    setclipboard("https://discord.gg/n2QxZaMMtC")
+   end,
+})
+
+Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
+
+local Tab = Window:CreateTab("Player", 7072724538)
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Walkspeed",
+	Range = {16, 420},
+	Increment = 5,
+	Suffix = "Walkspeed",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Jumppower",
+	Range = {50, 500},
+	Increment = 10,
+	Suffix = "Jumppower",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Field Of View",
+	Range = {70, 120},
+	Increment = 1,
+	Suffix = "FOV",
+	CurrentValue = 70,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Workspace.CurrentCamera.FieldOfView = Value
+	end,
+})
+
+local Tab = Window:CreateTab("Teleports", 7072718631)
+local Label = Tab:CreateLabel("There Are No Teleports For This Game At The Moment. :(")
+
+local Tab = Window:CreateTab("Farming", 7072707588)
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Blow",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().bubbleBlow = true
+		    while getgenv().bubbleBlow ~= false do
+		        local args = {
+		            [1] = "BlowBubble"
+		        }
+                game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+                wait()
+		    end
+		else
+		    getgenv().bubbleBlow = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Sell",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoSell = true
+		    while getgenv().autoSell ~= false do
+		        local args = {
+		            [1] = "SellBubble",
+                    [2] = "Sell"
+		        }
+                game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+                wait()
+		    end
+	    else
+	        getgenv().autoSell = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Sell [ Candy World ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoSell = true
+		    while getgenv().autoSell ~= false do
+		        local args = {
+                    [1] = "SellBubble",
+                    [2] = "CandySell"
+                }
+                game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+                wait()
+            end
+        
+        else
+            getgenv().autoSell = false
+end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Sell [ Beach World ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoSell = true
+            while getgenv().autoSell ~= false do
+                local args = {
+                    [1] = "SellBubble",
+                    [2] = "BeachSell"
+                }
+                game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+                wait()
+            end
+        else
+            getgenv().autoSell = false
+end
+	end,
+})
+
+local Tab = Window:CreateTab("Misc", 7059346373)
+
+local Button = Tab:CreateButton({
+	Name = "Boost FPS",
+	Callback = function()
+		print("Deleted Over 20 In-Game Model's.")
+		game:GetService("Workspace").Platforms:Destroy()
+		game:GetService("Workspace").PickupSpawns:Destroy()
+		game:GetService("Workspace").Cutscenes:Destroy()
+		game:GetService("Workspace").Pickups:Destroy()
+		game:GetService("Workspace").Bubbles:Destroy()
+		game:GetService("Workspace").Pets:Destroy()
+		game:GetService("Workspace").Model:Destroy()
+		game:GetService("Workspace").BubbleBoard:Destroy()
+		game:GetService("Workspace").Sign:Destroy()
+		game:GetService("Workspace").HatchBoard:Destroy()
+		game:GetService("Workspace").VIPSign:Destroy()
+		game:GetService("Workspace").GuessThatPet:Destroy()
+		game:GetService("Workspace").Sign:Destroy()
+		game:GetService("Workspace").Fireworks:Destroy()
+		game:GetService("Workspace").EggSigns:Destroy()
+		game:GetService("Workspace").TwitchSign:Destroy()
+		game:GetService("Workspace").CreditsBoard:Destroy()
+		game:GetService("Workspace").RankBoard:Destroy()
+		game:GetService("Workspace").Sign:Destroy()
+		game:GetService("Workspace").GumMachine:Destroy()
+		game:GetService("Workspace").Podiums:Destroy()
+		game:GetService("Workspace").TwitchSign:Destroy()
+		game:GetService("Workspace").VIPDoor:Destroy()
+		game:GetService("Workspace").GamesDoor:Destroy()
+		game:GetService("Workspace").Worlds.Overworld.Sign:Destroy()
+		game:GetService("Workspace").Worlds.Overworld.Mountains.Model:Destroy()
+		game:GetService("Workspace").Trampolines:Destroy()
+		game:GetService("Workspace").Worlds.Overworld.Mountains.Model:Destroy()
+		game:GetService("Workspace").Worlds.Overworld.Sign:Destroy()
+		game:GetService("Workspace").WorldDoor:Destroy()
+		game:GetService("Workspace").Worlds.Overworld.Ground.Part:Destroy()
+		game:GetService("Workspace").Worlds.Overworld.Mountains.Model:Destroy()
+		game:GetService("Workspace").Model.MeshPart:Destroy()
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Spin To Win",
+	Callback = function()
+	    local args = {
+	        [1] = "SpinToWin"
+        } 
+        game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+	end,
+})
+end
