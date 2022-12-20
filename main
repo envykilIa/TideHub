@@ -1,0 +1,279 @@
+if game.PlaceId == (8540346411) then
+local hum = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "#Tide Hub",
+	LoadingTitle = "Loading #Tide Hub",
+	LoadingSubtitle = "By | fortunatesouls#8803",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil,
+		FileName = "TideHub"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "n2QxZaMMtC",
+        	RememberJoins = true
+        },
+	KeySystem = false,
+	KeySettings = {
+		Title = "Tide Hub Key System",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/n2QxZaMMtC)",
+		FileName = "TideKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "#TideHub"
+	}
+})
+
+local Tab = Window:CreateTab("Credits", 7072706216)
+
+local Button = Tab:CreateButton({
+   Name = "Copy Discord Link",
+   Callback = function()
+    setclipboard("https://discord.gg/n2QxZaMMtC")
+   end,
+})
+
+Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
+
+local Tab = Window:CreateTab("Player", 7072724538)
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Walkspeed",
+	Range = {16, 170},
+	Increment = 5,
+	Suffix = "Walkspeed",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Jumppower",
+	Range = {50, 200},
+	Increment = 10,
+	Suffix = "Jumppower",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Field Of View",
+	Range = {70, 120},
+	Increment = 1,
+	Suffix = "FOV",
+	CurrentValue = 70,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Workspace.CurrentCamera.FieldOfView = Value
+	end,
+})
+
+local Tab = Window:CreateTab("Teleports", 7072718631)
+local Label = Tab:CreateLabel("There Are No Teleports For This Game At The Moment. :(")
+
+local Tab = Window:CreateTab("Farming", 7072707588)
+local Toggle = Tab:CreateToggle({
+	Name = "Christmas Present Autofarm",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+            getgenv().presentautofarm = true
+            while getgenv().presentautofarm ~= false do
+            wait(1)
+            for i, v in pairs(game:GetService("Workspace").Scripts.PresentsCollect.Storage:GetDescendants()) do
+                if v.Name == "TouchInterest" and v.Parent then
+                    firetouchinterest(hum, v.Parent, 0)
+                end
+            end
+        end
+    else
+        getgenv().presentautofarm = false
+        end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Tap",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+            getgenv().autotap = true
+            while getgenv().autotap ~= false do
+                wait(0.00000000001) -- You Can Change Wait Time 0.0000000001 - 0.000000000000000000000000000000000000001
+                game:GetService("ReplicatedStorage").Events.Click3:FireServer()
+            end
+    else
+        getgenv().autotap = false
+    end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Rebirth",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autorebirth = true
+        while getgenv().autorebirth ~= false do
+            wait(0.1)
+            local args = {
+                [1] = 1
+            }
+            game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        end
+    else
+        getgenv().autorebirth = false
+    end
+	end,
+})
+end
+
+
+if game.PlaceId == (1862413075) then
+    if game.PlaceId == (1862413075) then
+        local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+        local Window = Rayfield:CreateWindow({
+        Name = "#Tide Hub",
+        LoadingTitle = "Loading #Tide Hub",
+        LoadingSubtitle = "By | fortunatesouls#8803",
+        ConfigurationSaving = {
+            Enabled = true,
+            FolderName = nil,
+            FileName = "TideHub"
+        },
+            Discord = {
+                Enabled = false,
+                Invite = "n2QxZaMMtC",
+                RememberJoins = true
+            },
+        KeySystem = false,
+        KeySettings = {
+            Title = "Tide Hub Key System",
+            Subtitle = "Key System",
+            Note = "Join the discord (discord.gg/n2QxZaMMtC)",
+            FileName = "TideKey",
+            SaveKey = true,
+            GrabKeyFromSite = false,
+            Key = "#TideHub"
+        }
+    })
+    
+    local Tab = Window:CreateTab("Credits", 7072706216)
+    
+    local Button = Tab:CreateButton({
+       Name = "Copy Discord Link",
+       Callback = function()
+        setclipboard("https://discord.gg/n2QxZaMMtC")
+       end,
+    })
+    
+    Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
+    
+    local Tab = Window:CreateTab("Player", 7072724538)
+    
+    local Slider = Tab:CreateSlider({
+        Name = "Change Walkspeed",
+        Range = {16, 170},
+        Increment = 5,
+        Suffix = "Walkspeed",
+        CurrentValue = 10,
+        Flag = "Slider1",
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+        end,
+    })
+    
+    local Slider = Tab:CreateSlider({
+        Name = "Change Jumppower",
+        Range = {50, 200},
+        Increment = 10,
+        Suffix = "Jumppower",
+        CurrentValue = 10,
+        Flag = "Slider1",
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+        end,
+    })
+    
+    local Slider = Tab:CreateSlider({
+        Name = "Change Field Of View",
+        Range = {70, 120},
+        Increment = 1,
+        Suffix = "FOV",
+        CurrentValue = 70,
+        Flag = "Slider1",
+        Callback = function(Value)
+            game.Workspace.CurrentCamera.FieldOfView = Value
+        end,
+    })
+    
+    local Tab = Window:CreateTab("Teleports", 7072718631)
+    local Label = Tab:CreateLabel("There Are No Teleports For This Game At The Moment. :(")
+    
+    local Tab = Window:CreateTab("Farming", 7072707588)
+    local Toggle = Tab:CreateToggle({
+        Name = "Auto Pick",
+        CurrentValue = false,
+        Flag = "Toggle1",
+        Callback = function(Value)
+            if Value then
+            getgenv().autowheat = true
+            while getgenv().autowheat == true do
+                wait(0.1)
+                game:GetService("Players").LocalPlayer.Character:FindFirstChild("Farming Hoe").FireTool:FireServer()
+            end
+        else
+            getgenv().autowheat = false
+            end
+        end,
+    })
+    
+    local Toggle = Tab:CreateToggle({
+        Name = "Auto Sell",
+        CurrentValue = false,
+        Flag = "Toggle1",
+        Callback = function(Value)
+        if Value then
+            getgenv().autosell = true
+            while getgenv().autosell == true do
+                game:GetService("Workspace").Stores.SellPoints.Normal.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                wait(0.1)
+                game:GetService("Workspace").Stores.SellPoints.Normal.Circle.CFrame = CFrame.new(0,0,0)
+            end
+        else
+            getgenv().autosell = false
+        end
+        end,
+    })
+    
+    local Toggle = Tab:CreateToggle({
+        Name = "Auto Sell [ FOR VEHICLES ONLY ]",
+        CurrentValue = false,
+        Flag = "Toggle1",
+        Callback = function(Value)
+            if Value then
+            getgenv().autosell = true
+            while getgenv().autosell == true do
+                game:GetService("Workspace").Stores.SellPoints.Vehicle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                wait(0.1)
+                game:GetService("Workspace").Stores.SellPoints.Vehicle.CFrame = CFrame.new(0,0,0)
+            end
+        else
+            getgenv().autosell = false
+        end
+        end,
+    })
+    end
+end
