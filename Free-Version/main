@@ -3,7 +3,7 @@ local hum = game.Players.LocalPlayer.Character.HumanoidRootPart
 
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
-	Name = "#Tide Hub",
+	Name = "#Tide Hub - Rebirth Champions X",
 	LoadingTitle = "Loading #Tide Hub",
 	LoadingSubtitle = "By | fortunatesouls#8803",
 	ConfigurationSaving = {
@@ -145,7 +145,7 @@ if game.PlaceId == (1862413075) then
     if game.PlaceId == (1862413075) then
         local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
         local Window = Rayfield:CreateWindow({
-        Name = "#Tide Hub",
+        Name = "#Tide Hub - Farming Simulator",
         LoadingTitle = "Loading #Tide Hub",
         LoadingSubtitle = "By | fortunatesouls#8803",
         ConfigurationSaving = {
