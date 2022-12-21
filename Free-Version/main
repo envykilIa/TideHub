@@ -531,6 +531,17 @@ local Window = Rayfield:CreateWindow({
 	}
 })
 
+local Tab = Window:CreateTab("Credits")
+
+local Button = Tab:CreateButton({
+   Name = "Copy Discord Link",
+   Callback = function()
+    setclipboard("https://discord.gg/n2QxZaMMtC")
+   end,
+})
+
+Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
+
 local Tab = Window:CreateTab("Main")
 local Section = Tab:CreateSection("Main Section")
 
