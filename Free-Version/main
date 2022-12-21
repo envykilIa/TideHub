@@ -499,3 +499,175 @@ local Button = Tab:CreateButton({
 	end,
 })
 end
+
+if game.PlaceId == (142823291) then
+
+local hum = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "#Tide Hub - Murder Mystery 2",
+	LoadingTitle = "Loading #Tide Hub",
+	LoadingSubtitle = "By | fortunatesouls#8803",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil,
+		FileName = "TideHub"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "n2QxZaMMtC",
+        	RememberJoins = true
+        },
+	KeySystem = false,
+	KeySettings = {
+		Title = "Tide Hub Key System",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/n2QxZaMMtC)",
+		FileName = "TideKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "#TideHub"
+	}
+})
+
+local Tab = Window:CreateTab("Main")
+local Section = Tab:CreateSection("Main Section")
+
+local Button = Tab:CreateButton({
+	Name = "Elf Bodyguard",
+	Callback = function()
+		game:GetService("Workspace").Lobby.Elfs.ElfGift.Elf.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	end,
+})
+
+local Tab = Window:CreateTab("Player")
+local Section = Tab:CreateSection("Player Section")
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Walkspeed",
+	Range = {16, 170},
+	Increment = 5,
+	Suffix = "Walkspeed",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Jumppower",
+	Range = {50, 200},
+	Increment = 10,
+	Suffix = "Jumppower",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Field Of View",
+	Range = {70, 120},
+	Increment = 1,
+	Suffix = "FOV",
+	CurrentValue = 70,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Workspace.CurrentCamera.FieldOfView = Value
+	end,
+})
+
+local Tab = Window:CreateTab("Teleports")
+
+local Button = Tab:CreateButton({
+	Name = "[TELEPORT] Spawn",
+	Callback = function()
+		print("Teleported To Spawn")
+		wait(0.01)
+		hum.CFrame = CFrame.new(-153.537415, 142.774963, -0.539376974, -0.0355111398, -4.25320279e-10, -0.999369264, -5.08040832e-10, 1, -4.07536199e-10, 0.999369264, 4.93248331e-10, -0.0355111398)
+	end,
+})
+
+local Tab = Window:CreateTab("Event")
+local Section = Tab:CreateSection("Christmas 2022 Event")
+
+local Button = Tab:CreateButton({
+	Name = "[USELESS] - Buy Christmas Evo Set",
+	Callback = function()
+	    local args = {
+            [1] = 112956652
+    }
+    game:GetService("ReplicatedStorage").Remotes.Shop.GetPack:FireServer(unpack(args))
+	end,
+})
+
+
+local Button = Tab:CreateButton({
+	Name = "[USELESS] - Buy 1,000 Christmas Tokens",
+	Callback = function()
+	    local args = {
+            [1] = "1000",
+            [2] = "SnowTokens2022"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Shop.PurchaseProduct:FireServer(unpack(args))
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "[USELESS] - Buy 4,000 Christmas Tokens",
+	Callback = function()
+	    local args = {
+            [1] = "4000",
+            [2] = "SnowTokens2022"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Shop.PurchaseProduct:FireServer(unpack(args))
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "[USELESS] - Buy 8,000 Christmas Tokens",
+	Callback = function()
+	    local args = {
+            [1] = "8000",
+            [2] = "SnowTokens2022"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Shop.PurchaseProduct:FireServer(unpack(args))
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "[USELESS] - Buy 20,000 Christmas Tokens",
+	Callback = function()
+	    local args = {
+            [1] = "20000",
+            [2] = "SnowTokens2022"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Shop.PurchaseProduct:FireServer(unpack(args))
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "[USELESS] - Buy 65,000 Christmas Tokens",
+	Callback = function()
+	    local args = {
+            [1] = "65000",
+            [2] = "SnowTokens2022"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Shop.PurchaseProduct:FireServer(unpack(args))
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "[USELESS] - Buy 140,000 Christmas Tokens",
+	Callback = function()
+	    local args = {
+            [1] = "140000",
+            [2] = "SnowTokens2022"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Shop.PurchaseProduct:FireServer(unpack(args))
+	end,
+})
+end
