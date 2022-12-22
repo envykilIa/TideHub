@@ -502,7 +502,26 @@ end
 
 if game.PlaceId == (142823291) then
 
+local crateName = "crateName"
 local hum = game.Players.LocalPlayer.Character.HumanoidRootPart
+local workspaceC = workspace:GetChildren()	
+local currentX = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X
+local currentY = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y
+local currentZ = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
+
+for i,v in pairs(workspaceC) do	    
+    local vChildren = v:GetChildren()
+    for i,child in pairs(vChildren) do
+        if child.Name == "CoinContainer" then
+            
+            if child.Coin_Server:FindFirstChild("Coin") ~= nil then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
+                else
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+                    end
+			    end
+	        end
+        end
 
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
@@ -543,7 +562,8 @@ local Button = Tab:CreateButton({
 Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
 
 local Tab = Window:CreateTab("Main")
-local Section = Tab:CreateSection("Main Section")
+
+local Paragraph = Tab:CreateParagraph({Title = "Main Section EMPTY", Content = "I Am Sorry For The Lack Of Features, I Didin't Have That Much Time Today."})
 
 local Button = Tab:CreateButton({
 	Name = "Elf Bodyguard",
@@ -553,7 +573,6 @@ local Button = Tab:CreateButton({
 })
 
 local Tab = Window:CreateTab("Player")
-local Section = Tab:CreateSection("Player Section")
 
 local Slider = Tab:CreateSlider({
 	Name = "Change Walkspeed",
@@ -599,6 +618,115 @@ local Button = Tab:CreateButton({
 		print("Teleported To Spawn")
 		wait(0.01)
 		hum.CFrame = CFrame.new(-153.537415, 142.774963, -0.539376974, -0.0355111398, -4.25320279e-10, -0.999369264, -5.08040832e-10, 1, -4.07536199e-10, 0.999369264, 4.93248331e-10, -0.0355111398)
+	end,
+})
+
+local Tab = Window:CreateTab("Auto Farming")
+
+local Paragraph = Tab:CreateParagraph({Title = "ABOUT: Autofarms", Content = "You Cannot Toggle Any Of The Autofarms Off, Without Rejoining."})
+
+local Button = Tab:CreateButton({
+	Name = "Coin Autofarm [ SLOW ]",
+	Callback = function()
+	    Rayfield:Notify({
+    Title = "Coin Autofarm [ SLOW ] Notification",
+    Content = "Your Chance Of Getting Kicked Is 12.03% - Starting Autofarm In 4 Seconds",
+    Duration = 10,
+    Image = 69,
+    Actions = {
+        Ignore = {
+            Name = "Okay",
+            Callback = function()
+                print("Chance Of Getting Kicked Using Slow Autofarm Is 12 In 100 - 12.03%")
+            end
+		},
+	},
+})
+        while wait(4) do
+		for i,v in pairs(workspaceC) do	    
+		    local vChildren = v:GetChildren()
+		    for i,child in pairs(vChildren) do
+		        if child.Name == "CoinContainer" then
+		            
+		            if child.Coin_Server:FindFirstChild("Coin") ~= nil then
+		                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
+		                else
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+                            end
+			            end
+	                end
+		        end
+            end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Coin Autofarm [ NORMAL ]",
+	Callback = function()
+	    Rayfield:Notify({
+    Title = "Coin Autofarm [ NORMAL ] Notification",
+    Content = "Your Chance Of Getting Kicked Is 32.42% - Starting Autofarm In 2.2 Seconds",
+    Duration = 10,
+    Image = 69,
+    Actions = {
+        Ignore = {
+            Name = "Okay",
+            Callback = function()
+                print("Chance Of Getting Kicked Using Slow Autofarm Is 32 In 100 - 32.42%")
+            end
+		},
+	},
+})
+        while wait(2.2) do
+		for i,v in pairs(workspaceC) do	    
+		    local vChildren = v:GetChildren()
+		    for i,child in pairs(vChildren) do
+		        if child.Name == "CoinContainer" then
+		            
+		            if child.Coin_Server:FindFirstChild("Coin") ~= nil then
+		                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
+		                else
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+                            end
+			            end
+	                end
+		        end
+            end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Coin Autofarm [ FAST ]",
+	Callback = function()
+	    Rayfield:Notify({
+    Title = "Coin Autofarm [ FAST ] Notification",
+    Content = "Your Chance Of Getting Kicked Is 92.11% - Starting Autofarm In 1 Second",
+    Duration = 10,
+    Image = 69,
+    Actions = {
+        Ignore = {
+            Name = "Okay",
+            Callback = function()
+                print("Chance Of Getting Kicked Using Slow Autofarm Is 92 In 100 - 92.11%")
+            end
+		},
+	},
+})
+        while wait(1) do
+		for i,v in pairs(workspaceC) do	    
+		    local vChildren = v:GetChildren()
+		    for i,child in pairs(vChildren) do
+		        if child.Name == "CoinContainer" then
+		            
+		            if child.Coin_Server:FindFirstChild("Coin") ~= nil then
+		                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
+		                else
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+                            end
+			            end
+	                end
+		        end
+            end
 	end,
 })
 
