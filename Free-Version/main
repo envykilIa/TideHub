@@ -138,6 +138,141 @@ local Toggle = Tab:CreateToggle({
     end
 	end,
 })
+
+local Tab = Window:CreateTab("Christmas Event 2022", 7072707588)
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Hatch Snow Egg [ COST 100 PRESENTS ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autohatch = true
+		    while getgenv().autohatch ~= false do
+		        wait(0.5)
+		        local args = {
+                    [1] = "Snow",
+                    [2] = "Single"
+            }
+            game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+		    end
+        else
+            getgenv().autohatch = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Hatch Christmas Egg [ COST 1,000 PRESENTS ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autohatch = true
+		    while getgenv().autohatch ~= false do
+		        wait(0.5)
+		        local args = {
+                    [1] = "Christmas",
+                    [2] = "Single"
+            }
+            game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+		    end
+	        else
+	            getgenv().autohatch = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Hatch Frozen Egg [ COST 5,000 PRESENTS ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autohatch = true
+		    while getgenv().autohatch ~= false do
+		        wait(0.5)
+		        local args = {
+                    [1] = "Frozen",
+                    [2] = "Single"
+            }
+            game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+		    end
+	        else
+	            getgenv().autohatch = false
+		end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Claim Christmas Chest [ GROUP MEMBERS ONLY ]",
+	Callback = function()
+	    local args = {
+            [1] = "Christmas"
+    }
+    game:GetService("ReplicatedStorage").Events.Chest:FireServer(unpack(args))
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Claim Christmas Pass",
+	Callback = function()
+	    local args = {
+            [1] = "normal",
+            [2] = 1
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+    local args = {
+            [1] = "normal",
+            [2] = 2
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+    local args = {
+            [1] = "normal",
+            [2] = 3
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+    local args = {
+            [1] = "normal",
+            [2] = 4
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+    local args = {
+            [1] = "normal",
+            [2] = 5
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+    local args = {
+            [1] = "normal",
+            [2] = 6
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+    local args = {
+            [1] = "normal",
+            [2] = 7
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+    local args = {
+            [1] = "normal",
+            [2] = 8
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+    local args = {
+            [1] = "normal",
+            [2] = 9
+    }
+    game:GetService("ReplicatedStorage").Functions.ChristmasPass:InvokeServer(unpack(args))
+    wait(1.5)
+	end,
+})
 end
 
 
