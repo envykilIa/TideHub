@@ -810,3 +810,133 @@ local Button = Tab:CreateButton({
 	end,
 })
 end
+
+if game.PlaceId == (2788229376) then
+
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "#Tide Hub - Da Hood [ Selling Tools ]",
+	LoadingTitle = "Loading #Tide Hub",
+	LoadingSubtitle = "By | fortunatesouls#8803",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil,
+		FileName = "TideHub"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "n2QxZaMMtC",
+        	RememberJoins = true
+        },
+	KeySystem = false,
+	KeySettings = {
+		Title = "Tide Hub Key System",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/n2QxZaMMtC)",
+		FileName = "TideKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "#TideHub"
+	}
+})
+
+Rayfield:Notify({
+    Title = "#Tide Hub - Notification",
+    Content = "I'm Sorry For The Lack Of Features, I Will Add Some More Features In A Week Or So.",
+    Duration = 10,
+    Image = 69,
+    Actions = { -- Notification Buttons
+        Ignore = {
+            Name = "Okay!",
+            Callback = function()
+                print("----------")
+            end
+		},
+	},
+})
+
+local Tab = Window:CreateTab("Credits")
+
+local Button = Tab:CreateButton({
+   Name = "Copy Discord Link",
+   Callback = function()
+    setclipboard("https://discord.gg/n2QxZaMMtC")
+   end,
+})
+
+Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
+
+local Tab = Window:CreateTab("Dropping Tools")
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Drop",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    _G.autodrop = true
+		    while _G.autodrop ~= false do
+		        wait(1)
+		        local args = {
+                    [1] = "DropMoney",
+                    [2] = "10000"
+            }
+            game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+		    end
+		    
+		    else
+		        _G.autodrop = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Block",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    _G.autoblock = true
+		    while _G.autoblock ~= false do
+		        wait(1)
+		        local args = {
+                    [1] = "Block",
+                    [2] = true
+            }
+            game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+		    end
+		    
+		    else
+		        local args = {
+                    [1] = "Block",
+                    [2] = false
+            }
+            game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+            _G.autoblock = false
+		end
+
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Snowball Crash [ NOT FINISHED ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    _G.snowCrash = true
+		    while _G.snowCrash ~= false do
+		        wait(0.09)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(297.382202, 106.791412, -621.970032, -0.999522209, -3.78825682e-09, 0.0309082307, -6.09226491e-09, 1, -7.44493391e-08, -0.0309082307, -7.46020703e-08, -0.999522209)
+		        local args = {
+                    [1] = "PickSnow"
+            } 
+            game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+		    end
+		    
+		    else
+		        _G.snowCrash = false
+		end
+	end,
+})
+end
