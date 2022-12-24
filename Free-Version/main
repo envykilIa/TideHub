@@ -1315,6 +1315,19 @@ local Button = Tab:CreateButton({
 	end,
 })
 
+local Button = Tab:CreateButton({
+	Name = "Claim All Reward Chest",
+	Callback = function()
+		wait(2)
+	            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1613.69019, 23.329401, -494.816467, 1.2755394e-05, 0.965938866, -0.258770198, -0.99999994, 1.2755394e-05, -1.66893005e-06, 1.66893005e-06, 0.258770198, 0.965938926)
+        		wait(4)
+        		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2236.63989, 316.294739, 1014.28278, -5.96046448e-07, 0.0871878564, -0.996191859, -1, -5.96046448e-07, 5.66244125e-07, -5.66244125e-07, 0.996191859, 0.0871878266)
+        		wait(5)
+        		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1572.59412, 103.960609, 5678.76611, -0.00328338146, -0.984814405, 0.173580498, -0.999834418, 0.000123798847, -0.0182078481, 0.0179098323, -0.173611507, -0.984651804)
+        		wait(6)
+	end,
+})
+
 local Toggle = Tab:CreateToggle({
 	Name = "Auto Rebirth",
 	CurrentValue = false,
@@ -1339,7 +1352,7 @@ local Tab = Window:CreateTab("Player", 7072724538)
 
 local Slider = Tab:CreateSlider({
 	Name = "Change Walkspeed",
-	Range = {16, 170},
+	Range = {16, 500},
 	Increment = 5,
 	Suffix = "Walkspeed",
 	CurrentValue = 10,
@@ -1351,7 +1364,7 @@ local Slider = Tab:CreateSlider({
 
 local Slider = Tab:CreateSlider({
 	Name = "Change Jumppower",
-	Range = {50, 200},
+	Range = {50, 500},
 	Increment = 10,
 	Suffix = "Jumppower",
 	CurrentValue = 10,
@@ -1376,20 +1389,29 @@ local Slider = Tab:CreateSlider({
 local Tab = Window:CreateTab("Teleports", 7072718631)
 
 local Button = Tab:CreateButton({
-	Name = "Purple Crystal",
-	Callback = function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
-	end,
-})
-
-local Button = Tab:CreateButton({
-	Name = "Grass Course",
+	Name = "Grass Course [ LEVEL 5 ]",
 	Callback = function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-824.209778, 15.1971445, 128.850281, 0.201442644, 6.74832208e-08, 0.979500294, -6.15156814e-09, 1, -6.76304381e-08, -0.979500294, 7.59819141e-09, 0.201442644)
 	end,
 })
 
+local Button = Tab:CreateButton({
+	Name = "Frost Course [ LEVEL 15 ]",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(371.947296, 3.93948269, -17.7315865, -3.57627869e-06, -0.906621039, -0.421946198, -1.00000012, 3.27825546e-06, 7.74860382e-07, 7.74860382e-07, 0.421946198, -0.906621218)
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Snow City",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9673.79102, 60.6541595, 3788.24927, 0, 1, -0, -1, 0, 0, 0, 0, 1)
+	end,
+})
+
 local Tab = Window:CreateTab("Farming", 7072707588)
+
+local Label = Tab:CreateLabel("Normal City Autofarms:")
 
 local Toggle = Tab:CreateToggle({
 	Name = "Orb Autofarm",
@@ -1449,6 +1471,75 @@ local Toggle = Tab:CreateToggle({
 		    else
 		        getgenv().circleautofarm = false
 		end
+	end,
+})
+
+local Label = Tab:CreateLabel("Snow City Autofarms:")
+
+local Toggle = Tab:CreateToggle({
+	Name = "Orb Autofarm [ SNOW CITY ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+            getgenv().orbautofarm = true
+            while getgenv().orbautofarm ~= false do
+            wait(1)
+            for i, v in pairs(game:GetService("Workspace").orbFolder["Snow City"]:GetDescendants()) do
+                if v.Name == "TouchInterest" and v.Parent then
+                    firetouchinterest(hum, v.Parent, 0)
+                end
+            end
+        end
+    else
+        getgenv().orbautofarm = false
+        end
+	end,
+})
+
+local Label = Tab:CreateLabel("Magma City Autofarms:")
+
+local Toggle = Tab:CreateToggle({
+	Name = "Orb Autofarm [ MAGMA CITY ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+            getgenv().orbautofarm = true
+            while getgenv().orbautofarm ~= false do
+            wait(1)
+            for i, v in pairs(game:GetService("Workspace").orbFolder["Magma City"]:GetDescendants()) do
+                if v.Name == "TouchInterest" and v.Parent then
+                    firetouchinterest(hum, v.Parent, 0)
+                end
+            end
+        end
+    else
+        getgenv().orbautofarm = false
+        end
+	end,
+})
+
+local Label = Tab:CreateLabel("Legends Highway Autofarms:")
+
+local Toggle = Tab:CreateToggle({
+	Name = "Orb Autofarm [ LEGENDS HIGHWAY ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+            getgenv().orbautofarm = true
+            while getgenv().orbautofarm ~= false do
+            wait(1)
+            for i, v in pairs(game:GetService("Workspace").orbFolder["Legends Highway"]:GetDescendants()) do
+                if v.Name == "TouchInterest" and v.Parent then
+                    firetouchinterest(hum, v.Parent, 0)
+                end
+            end
+        end
+    else
+        getgenv().orbautofarm = false
+        end
 	end,
 })
 
