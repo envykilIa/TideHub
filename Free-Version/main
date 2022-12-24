@@ -1075,3 +1075,178 @@ local Toggle = Tab:CreateToggle({
 	end,
 })
 end
+
+if game.PlaceId == (7560156054) then
+
+local hum = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "#Tide Hub - Clicker Simulator",
+	LoadingTitle = "Loading #Tide Hub",
+	LoadingSubtitle = "By | fortunatesouls#8803",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil,
+		FileName = "TideHub"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "n2QxZaMMtC",
+        	RememberJoins = true
+        },
+	KeySystem = false,
+	KeySettings = {
+		Title = "Tide Hub Key System",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/n2QxZaMMtC)",
+		FileName = "TideKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "#TideHub"
+	}
+})
+
+local Tab = Window:CreateTab("Credits", 7072706216)
+
+local Button = Tab:CreateButton({
+   Name = "Copy Discord Link",
+   Callback = function()
+    setclipboard("https://discord.gg/n2QxZaMMtC")
+   end,
+})
+
+Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
+
+local Tab = Window:CreateTab("Main", 7072707588)
+
+local Button = Tab:CreateButton({
+	Name = "Claim Snowflakes Chest",
+	Callback = function()
+		local args = {
+            [1] = "Christmas"
+    }
+    game:GetService("ReplicatedStorage").SpecWork.Shared.Network.TeleportTo:InvokeServer(unpack(args))
+    wait(1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1013.59045, 207.007492, 12.6154356, -0.711412907, -4.71497579e-08, 0.702774227, -3.33405445e-08, 1, 3.33405268e-08, -0.702774227, 2.88006091e-10, -0.711412907)
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Collect Random Gifts",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoclaim = true
+		    while getgenv().autoclaim ~= false do
+		        wait(30)
+		        local args = {
+                    [1] = "LocalScript",
+                    [2] = "CollectGifts"
+        }
+        game:GetService("ReplicatedStorage").Events.ClientToServer.ClientToServerEvent:FireServer(unpack(args))
+		    end
+    else
+        getgenv().autoclaim = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Rebirth",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autorebirth = true
+		    while getgenv().autorebirth ~= false do
+		        wait(0.5)
+		        local args = {
+                    [1] = "LocalScript",
+                    [2] = "RequestRebirth",
+                    [3] = 1,
+                    [4] = false,
+                    [5] = false
+        }
+        game:GetService("ReplicatedStorage").Events.ClientToServer.ClientToServerEvent:FireServer(unpack(args))
+		    end
+    else
+        getgenv().autorebirth = false
+		end
+	end,
+})
+
+local Tab = Window:CreateTab("Player", 7072724538)
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Walkspeed",
+	Range = {16, 170},
+	Increment = 5,
+	Suffix = "Walkspeed",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Jumppower",
+	Range = {50, 200},
+	Increment = 10,
+	Suffix = "Jumppower",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Field Of View",
+	Range = {70, 120},
+	Increment = 1,
+	Suffix = "FOV",
+	CurrentValue = 70,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Workspace.CurrentCamera.FieldOfView = Value
+	end,
+})
+
+local Tab = Window:CreateTab("Teleports", 7072718631)
+
+local Button = Tab:CreateButton({
+	Name = "Christmas 2022 Event",
+	Callback = function()
+	    local args = {
+            [1] = "Christmas"
+    }
+    game:GetService("ReplicatedStorage").SpecWork.Shared.Network.TeleportTo:InvokeServer(unpack(args))
+	end,
+})
+
+local Tab = Window:CreateTab("Farming", 7072707588)
+
+local Toggle = Tab:CreateToggle({
+	Name = "Snowflake Autofarm",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+            getgenv().snowflakeautofarm = true
+            while getgenv().snowflakeautofarm ~= false do
+            wait(1)
+            for i, v in pairs(game:GetService("Workspace").Zones.Christmas.Drops:GetDescendants()) do
+                if v.Name == "TouchInterest" and v.Parent then
+                    firetouchinterest(hum, v.Parent, 0)
+                end
+            end
+        end
+    else
+        getgenv().snowflakeautofarm = false
+        end
+	end,
+})
+end
