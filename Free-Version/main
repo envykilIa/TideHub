@@ -78,7 +78,23 @@ local Slider = Tab:CreateSlider({
 })
 
 local Tab = Window:CreateTab("Teleports", 7072718631)
-local Label = Tab:CreateLabel("There Are No Teleports For This Game At The Moment. :(")
+
+local Button = Tab:CreateButton({
+	Name = "Christmas Event Area",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-685.560059, 6.99718809, 1303.31616, 0.939506292, -7.12683956e-08, 0.342531681, 9.66435891e-08, 1, -5.7013299e-08, -0.342531681, 8.66678462e-08, 0.939506292)
+		wait(0.001)
+        local args = {
+            [1] = "Christmas"
+        }
+        game:GetService("ReplicatedStorage").Events.WorldBoost:FireServer(unpack(args))
+        wait(0.001)
+        local args = {
+            [1] = "Christmas"
+        }
+        game:GetService("ReplicatedStorage").Events.StoreWorldBoost:FireServer(unpack(args))
+    end,
+})
 
 local Tab = Window:CreateTab("Farming", 7072707588)
 local Toggle = Tab:CreateToggle({
@@ -274,7 +290,6 @@ local Button = Tab:CreateButton({
 	end,
 })
 end
-
 
 if game.PlaceId == (1862413075) then
     if game.PlaceId == (1862413075) then
