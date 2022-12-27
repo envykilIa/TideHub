@@ -431,6 +431,9 @@ end
 if game.PlaceId == (2512643572) then
     -- Vars
     local eggType = "eggType"
+    local currentX = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X
+    local currentY = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y
+    local currentZ = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
     
     local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
     local Window = Rayfield:CreateWindow({
@@ -512,6 +515,72 @@ local Tab = Window:CreateTab("Teleports", 7072718631)
 local Label = Tab:CreateLabel("There Are No Teleports For This Game At The Moment. :(")
 
 local Tab = Window:CreateTab("Farming", 7072707588)
+
+local Button = Tab:CreateButton({
+	Name = "Teleport To Christmas World [ DO THIS BEFORE SNOWFLAKE AUTOFARM ]",
+	Callback = function()
+	    local args = {
+            [1] = "Teleport",
+            [2] = "EventSpawn"
+        } 
+        game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Snowflake Autofarm",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(snowflakeAutofarm)
+		if snowflakeAutofarm then
+		    getgenv().snowflake = true
+		    while getgenv().snowflake ~= false do
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-147.846375, 293.228729, 1632.64258, 0.876551747, 1.50350807e-08, -0.481307596, -3.80400422e-08, 1, -3.8040092e-08, 0.481307596, 5.16530712e-08, 0.876551747)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-147.684891, 292.926849, 1627.04419, 0.996541262, -3.4747341e-08, -0.0830991119, 3.80400103e-08, 1, 3.80400813e-08, 0.0830991119, -4.10696011e-08, 0.996541262)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-140.60849, 292.926849, 1624.55286, 0.66275245, 3.27469007e-09, -0.748838544, 3.80401382e-08, 1, 3.80400884e-08, 0.748838544, -5.36970859e-08, 0.66275245)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-133.495193, 292.728729, 1618.25684, 0.662776589, -3.27301297e-09, -0.748817205, -3.80400742e-08, 1, -3.80401026e-08, 0.748817205, 5.36971534e-08, 0.662776589)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-124.852089, 293.060303, 1609.99316, 0.757938802, 4.01744682e-09, -0.65232569, -3.80400778e-08, 1, -3.80402057e-08, 0.65232569, 5.36466693e-08, 0.757938802)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-120.438194, 279.617096, 1603.20837, 0.832337201, -1.05777413e-08, -0.554269552, 3.80400706e-08, 1, 3.80400209e-08, 0.554269552, -5.27465787e-08, 0.832337201)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-113.037636, 273.880859, 1594.87073, 0.77595818, -2.18158096e-11, -0.630784333, -1.04357053e-11, 1, -4.74226734e-11, 0.630784333, 4.33806914e-11, 0.77595818)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-106.823471, 265.82486, 1586.94739, 0.795889974, -2.12715479e-12, -0.605441272, 2.52701472e-14, 1, -3.48017643e-12, 0.605441272, 2.75453792e-12, 0.795889974)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-97.8157959, 253.260117, 1576.71484, 0.354075879, -6.47701198e-11, -0.935216725, 2.29674851e-12, 1, -6.83872473e-11, 0.935216725, 2.20663175e-11, 0.354075879)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-87.4442749, 249.323944, 1570.44385, 0.517941713, -4.37553032e-12, -0.855415881, 4.73075843e-13, 1, -4.82865093e-12, 0.855415881, 2.09628322e-12, 0.517941713)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-76.6746902, 246.30896, 1565.27722, -0.0751533061, 4.0791388e-08, -0.997171998, 3.80401417e-08, 1, 3.80401239e-08, 0.997171998, -3.50737217e-08, -0.0751533061)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-66.7171326, 243.641159, 1563.74609, 0.147182956, 3.20269926e-08, -0.989109278, 3.80400742e-08, 1, 3.80401275e-08, 0.989109278, -4.32246487e-08, 0.147182956)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-56.1990585, 244.934723, 1562.11804, 0.0859412849, 3.46301832e-08, -0.99630022, 3.80401204e-08, 1, 3.80401417e-08, 0.99630022, -4.11685974e-08, 0.0859412849)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-46.2854576, 246.091583, 1560.8396, 0.110562384, -2.04505995e-11, -0.993869185, -1.62520969e-11, 1, -2.23847069e-11, 0.993869185, 1.86273653e-11, 0.110562384)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-42.0584373, 253.734375, 1560.41577, 0.100891612, -9.22792082e-15, -0.994897425, -3.27121047e-17, 1, -9.27856577e-15, 0.994897425, 9.68674608e-16, 0.100891612)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-36.0884857, 254.81633, 1559.81543, 0.0999685973, -3.42066394e-16, -0.994990587, -4.44795533e-20, 1, -3.43793044e-16, 0.994990587, 3.44127649e-17, 0.0999685973)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-30.6183662, 254.816681, 1559.26709, 0.0998725668, -8.95688745e-19, -0.995000243, -1.75748435e-21, 1, -9.00365831e-19, 0.995000243, 9.16705466e-20, 0.0998725668)
+                wait(0.07)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+                
+                if game:GetService("Workspace").ChristmasMap.Houses.House.Activation.Root then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").ChristmasMap.Houses.House.Activation.Root.CFrame
+                    end
+                    wait()
+		    end
+                else
+                    getgenv().snowflake = false
+		end
+	end,
+})
 
 local Toggle = Tab:CreateToggle({
 	Name = "Auto Blow",
