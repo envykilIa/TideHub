@@ -1264,6 +1264,32 @@ local Toggle = Tab:CreateToggle({
         end
 	end,
 })
+
+local Tab = Window:CreateTab("Christmas 2022 Event")
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Hatch Christmas Egg [ COST 1,000 SNOWFLAKES ]",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autohatch = true
+		    while getgenv().autohatch ~= false do
+		        wait(0.5)
+		        local args = {
+                    [1] = "Client",
+                    [2] = "PurchaseEgg2",
+                    [3] = "Christmas",
+                    [4] = false,
+                    [5] = false
+                }
+                game:GetService("ReplicatedStorage").Events.ClientToServer.ClientToServerFunction:InvokeServer(unpack(args))
+		    end
+        else
+            getgenv().autohatch = false
+		end
+	end,
+})
 end
 
 if game.PlaceId == (3101667897) then
