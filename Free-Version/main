@@ -1603,3 +1603,135 @@ local Toggle = Tab:CreateToggle({
 	end,
 })
 end
+
+if game.PlaceId == (379614936) then
+
+local hum = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "#Tide Hub - Assassin",
+	LoadingTitle = "Loading #Tide Hub",
+	LoadingSubtitle = "By | fortunatesouls#8803",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil,
+		FileName = "TideHub"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "n2QxZaMMtC",
+        	RememberJoins = true
+        },
+	KeySystem = false,
+	KeySettings = {
+		Title = "Tide Hub Key System",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/n2QxZaMMtC)",
+		FileName = "TideKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "#TideHub"
+	}
+})
+
+local Tab = Window:CreateTab("Credits", 7072706216)
+
+local Button = Tab:CreateButton({
+   Name = "Copy Discord Link",
+   Callback = function()
+    setclipboard("https://discord.gg/n2QxZaMMtC")
+   end,
+})
+
+Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
+
+local Tab = Window:CreateTab("Main", 7072707588)
+
+local Button = Tab:CreateButton({
+	Name = "Auto Complete Obby [ GIVES NINJA KNIFE ]",
+	Callback = function()
+	    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2530.96753, 592.432617, -341.642853, 0.300670356, 0, -0.953728139, 0, 1, 0, 0.953728139, 0, 0.3006)
+	end,
+})
+
+local Tab = Window:CreateTab("Player", 7072724538)
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Walkspeed",
+	Range = {16, 170},
+	Increment = 5,
+	Suffix = "Walkspeed",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Jumppower",
+	Range = {50, 200},
+	Increment = 10,
+	Suffix = "Jumppower",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Change Field Of View",
+	Range = {70, 120},
+	Increment = 1,
+	Suffix = "FOV",
+	CurrentValue = 70,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Workspace.CurrentCamera.FieldOfView = Value
+	end,
+})
+
+local Tab = Window:CreateTab("Teleports", 7072718631)
+
+local Button = Tab:CreateButton({
+	Name = "Spawn",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2387.33008, 597.197693, -399.568909, -0.0117532453, 4.80094862e-08, 0.999930918, -9.15685803e-08, 1, -4.90891026e-08, -0.999930918, -9.21392171e-08, -0.0117532453)
+    end,
+})
+
+local Tab = Window:CreateTab("Farming", 7072707588)
+
+local Button = Tab:CreateButton({
+	Name = "Become Ghost [ MUST BE DEAD ]",
+	Callback = function()
+	    game:GetService("ReplicatedStorage").Remotes.RequestGhostSpawn:InvokeServer()
+    end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Ghost Coin Autofarm",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().ghostautofarm = true
+		    while getgenv().ghostautofarm ~= false do
+		        wait(1)
+		        game:GetService("ReplicatedStorage").Remotes.RequestGhostSpawn:InvokeServer()
+		        wait(0.001)
+		        for i, v in pairs(game:GetService("Workspace").GhostCoins:GetDescendants()) do
+		            if v.Name == "TouchInterest" and v.Parent then
+		                firetouchinterest(hum, v.Parent, 0)
+		                firetouchinterest(hum, v.Parent, 1)
+		                end
+		            end
+		        end
+        else
+            getgenv().ghostautofarm = false
+		    end
+	end,
+})
+end
