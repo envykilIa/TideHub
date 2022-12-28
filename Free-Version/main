@@ -1163,6 +1163,9 @@ end
 if game.PlaceId == (7560156054) then
 
 local hum = game.Players.LocalPlayer.Character.HumanoidRootPart
+local currentX = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X
+local currentY = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y
+local currentZ = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
 
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
@@ -1331,6 +1334,27 @@ local Toggle = Tab:CreateToggle({
     else
         getgenv().snowflakeautofarm = false
         end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Snowflake Autofarm #2",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().snowflakeautofarm2 = true
+		    while getgenv().snowflakeautofarm2 ~= false do
+		        wait(0.07)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+		        
+		        if game:GetService("Workspace").Zones.Christmas.Drops.Drop.Snowflake then
+		            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones.Christmas.Drops.Drop.Snowflake.CFrame
+		        end
+		    end
+            else
+                getgenv().snowflakeautofarm2 = false
+		end
 	end,
 })
 
