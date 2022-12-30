@@ -100,6 +100,32 @@ local Button = Tab:CreateButton({
     end,
 })
 
+local Button = Tab:CreateButton({
+	Name = "New Years 2023 Event",
+	Callback = function()
+	    hum.CFrame = CFrame.new(257.648926, 8.35011005, 4.03359079, 0.807554185, 0, 0.589793503, 0, 1, 0, -0.589793503, 0, 0.807554185)
+	    local args = {
+            [1] = "2023"
+        }
+        game:GetService("ReplicatedStorage").Functions.RequestMap:InvokeServer(unpack(args))
+        wait(0.005)
+        local args = {
+            [1] = "2023"
+        }
+        game:GetService("ReplicatedStorage").Functions.RetrievedMap:InvokeServer(unpack(args))
+        wait(0.005)
+        local args = {
+            [1] = "2023"
+        }
+        game:GetService("ReplicatedStorage").Events.WorldBoost:FireServer(unpack(args))
+        wait(0.005)
+        local args = {
+            [1] = "2023"
+        }
+        game:GetService("ReplicatedStorage").Events.StoreWorldBoost:FireServer(unpack(args))
+	end,
+})
+
 local Tab = Window:CreateTab("Farming", 7072707588)
 local Toggle = Tab:CreateToggle({
 	Name = "Christmas Present Autofarm",
@@ -241,6 +267,89 @@ local Toggle = Tab:CreateToggle({
 		    end
 	        else
 	            getgenv().autohatch = false
+		end
+	end,
+})
+
+local Paragraph = Tab:CreateParagraph({Title = "Safe Auto Hatching Below", Content = "Please Use These For A Lower Ban Chance, Only 1 Of My 13 Alts Was Banned."})
+
+local Button = Tab:CreateButton({
+	Name = "Unanchor [ USE THIS IF SAFE HATCH DOESNT AUTO TP TO GROUND ]",
+	Callback = function()
+		hum.Anchored = false
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "[ SAFE ] Auto Hatch Snow Egg",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().safehatch = true
+		    while getgenv().safehatch ~= false do
+		        wait(1)
+		        hum.CFrame = CFrame.new(-741.838562, -4.97477913, 1344.33179, -0.112090379, -0.0185150448, 0.993525505, 1.94007285e-07, 0.999826372, 0.0186324883, -0.993697882, 0.00208871043, -0.1120709)
+		        hum.Anchored = true
+		        wait(0.09)
+		        local args = {
+                    [1] = "Snow",
+                    [2] = "Single"
+                }
+                game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+		    end
+	        else
+	            hum.Anchored = false
+	            hum.Anchored = false
+	            getgenv().safehatch = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "[ SAFE ] Auto Hatch Christmas Egg",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().safehatch = true
+		    while getgenv().safehatch ~= false do
+		        hum.CFrame = CFrame.new(-746.003113, -9.40524673, 1320.64905, -0.0334342532, 0.00797738321, 0.99940908, -5.95869487e-08, 0.999968171, -0.00798184704, -0.999440849, -0.00026692453, -0.03343319)
+		        hum.Anchored = true
+		        wait(0.2)
+		        local args = {
+                    [1] = "Christmas",
+                    [2] = "Single"
+                }
+                game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+		    end
+	        else
+	            hum.Anchored = false
+	            getgenv().safehatch = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "[ SAFE ] Auto Hatch Frozen Egg",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().safehatch = true
+		    while getgenv().safehatch ~= false do
+		        hum.CFrame = CFrame.new(-743.747253, -10.1659565, 1309.33728, -0.0624286421, -0.0481612943, 0.99688673, 5.96403993e-08, 0.998835027, 0.0482554249, -0.998049378, 0.00301256776, -0.062355909)
+		        hum.Anchored = true
+		        wait(0.2)
+		        local args = {
+                    [1] = "Frozen",
+                    [2] = "Single"
+                }
+                game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+		    end
+	        else
+	            hum.Anchored = false
+	            getgenv().safehatch = false
 		end
 	end,
 })
