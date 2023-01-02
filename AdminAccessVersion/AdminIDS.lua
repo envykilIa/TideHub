@@ -1,6 +1,6 @@
 DevIDS = {
-    2688454949, -- fortunatesouIs
-    3503576859, -- fortunatesouIs [ALT #1]
+    69, -- Soon
+    69, -- soON
 }
 
 
