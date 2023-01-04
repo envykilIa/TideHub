@@ -862,20 +862,6 @@ local currentX = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X
 local currentY = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y
 local currentZ = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
 
-for i,v in pairs(workspaceC) do	    
-    local vChildren = v:GetChildren()
-    for i,child in pairs(vChildren) do
-        if child.Name == "CoinContainer" then
-            
-            if child.Coin_Server:FindFirstChild("Coin") ~= nil then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
-                else
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
-                    end
-			    end
-	        end
-        end
-
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
 	Name = "#Tide Hub - Murder Mystery 2",
@@ -916,7 +902,108 @@ Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Devel
 
 local Tab = Window:CreateTab("Main")
 
-local Paragraph = Tab:CreateParagraph({Title = "Main Section EMPTY", Content = "I Am Sorry For The Lack Of Features, I Didin't Have That Much Time Today."})
+local Button = Tab:CreateButton({
+	Name = "Grab Gun",
+	Callback = function()
+	    if workspace:FindFirstChild("GunDrop") ~= nil then
+	        
+	        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("GunDrop").CFrame	
+		    wait(.55)	
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+			
+			else
+			    Rayfield:Notify({
+                Title = "Grab Gun Failed",
+                Content = "The Gun Is Not Dropped At The Moment.",
+                Duration = 6.5,
+                Image = 69,
+                Actions = {
+                Ignore = {
+                Name = "Ok",
+                Callback = function()
+                print("Gun Grab Failed")
+            end
+		},
+	},
+})
+end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Grab Gun",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autograb = true
+		    while getgenv().autograb ~= false do
+		        wait(0.5)
+		        if workspace:FindFirstChild("GunDrop") ~= nil then
+		            
+		            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("GunDrop").CFrame	
+		            wait(.55)	
+			        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+		        end
+		    end
+		    else
+		        getgenv().autograb = false
+		    end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Notify Roles",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(c)
+		getgenv().notifyRoleToggle = c
+		
+		while notifyRoleToggle do
+		    task.wait()
+		    if notifyRoleToggle == true then
+		        for _, v in next, game:GetService("Players"):GetPlayers() do
+                        if v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
+                            Rayfield:Notify({
+                                Title = "Murderer Notification",
+                                Content = "The Murderer Is " ..v.Name,
+                                Duration = 4,
+                                Image = 69,
+                                Actions = {
+                                    Ignore = {
+                                        Name = "Okay!",
+                                        Callback = function()
+                                            print("---")
+            end
+		},
+	},
+})
+                            print("murderer is " ..v.Name)
+                        end
+	                if v.Backpack:FindFirstChild("Gun") or v.Character:FindFirstChild("Gun") then
+	                    Rayfield:Notify({
+                            Title = "Sherrif Notification",
+                            Content = "The Sherrif Is " ..v.Name,
+                            Duration = 4,
+                            Image = 60,
+                            Actions = {
+                                Ignore = {
+                                Name = "Okay!",
+                                Callback = function()
+                                print("____")
+                end
+		},
+	},
+})
+	end
+end
+task.wait(30)
+elseif notifyRoleToggle == false then
+    break
+	end
+end
+	end,
+})
 
 local Button = Tab:CreateButton({
 	Name = "Elf Bodyguard",
@@ -965,6 +1052,32 @@ local Slider = Tab:CreateSlider({
 
 local Tab = Window:CreateTab("Teleports")
 
+local plrs = {}
+local selectedPlr
+
+for _, v in next, game:GetService("Players"):GetPlayers() do
+    if v.Name ~= game.Players.LocalPlayer.Name then
+        table.insert(plrs, v.Name)
+    end
+end
+
+local Dropdown = Tab:CreateDropdown({
+	Name = "Select Player",
+	Options = plrs,
+	CurrentOption = "nil",
+	Flag = "players",
+	Callback = function(x)
+	  	  selectedPlr = x
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Teleport To Selected Player",
+	Callback = function()
+	    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[selectedPlr].Character.HumanoidRootPart.CFrame
+	end,
+})
+
 local Button = Tab:CreateButton({
 	Name = "[TELEPORT] Spawn",
 	Callback = function()
@@ -973,6 +1086,29 @@ local Button = Tab:CreateButton({
 		hum.CFrame = CFrame.new(-153.537415, 142.774963, -0.539376974, -0.0355111398, -4.25320279e-10, -0.999369264, -5.08040832e-10, 1, -4.07536199e-10, 0.999369264, 4.93248331e-10, -0.0355111398)
 	end,
 })
+
+local Button = Tab:CreateButton({
+	Name = "Teleport To Murderer",
+	Callback = function()
+	    for _, v in next, game:GetService("Players"):GetPlayers() do
+	        if v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
+	            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
+            end
+        end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Teleport To Sherrif",
+	Callback = function()
+	    for _, v in next, game:GetService("Players"):GetPlayers() do
+	        if v.Backpack:FindFirstChild("Gun") or v.Character:FindFirstChild("Gun") then
+	            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
+            end
+        end
+	end,
+})
+
 
 local Tab = Window:CreateTab("Auto Farming")
 
