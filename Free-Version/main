@@ -1112,110 +1112,46 @@ local Button = Tab:CreateButton({
 
 local Tab = Window:CreateTab("Auto Farming")
 
-local Paragraph = Tab:CreateParagraph({Title = "ABOUT: Autofarms", Content = "You Cannot Toggle Any Of The Autofarms Off, Without Rejoining."})
+local Paragraph = Tab:CreateParagraph({Title = "!!! TIDE HUB WARNING !!!", Content = "We Are Not Lie-Able For In-game Bans, If You Get Banned This Is Your Fault."})
 
-local Button = Tab:CreateButton({
-	Name = "Coin Autofarm [ SLOW ]",
-	Callback = function()
-	    Rayfield:Notify({
-    Title = "Coin Autofarm [ SLOW ] Notification",
-    Content = "Your Chance Of Getting Kicked Is 12.03% - Starting Autofarm In 4 Seconds",
-    Duration = 10,
-    Image = 69,
-    Actions = {
-        Ignore = {
-            Name = "Okay",
-            Callback = function()
-                print("Chance Of Getting Kicked Using Slow Autofarm Is 12 In 100 - 12.03%")
-            end
-		},
-	},
-})
-        while wait(4) do
-		for i,v in pairs(workspaceC) do	    
-		    local vChildren = v:GetChildren()
-		    for i,child in pairs(vChildren) do
-		        if child.Name == "CoinContainer" then
-		            
-		            if child.Coin_Server:FindFirstChild("Coin") ~= nil then
-		                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
-		                else
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
-                            end
-			            end
-	                end
-		        end
-            end
+local Slider = Tab:CreateSlider({
+	Name = "Coin Farming Speed",
+	Range = {2.5, 10},
+	Increment = 0.5,
+	Suffix = "Farming Speed",
+	CurrentValue = 2.5,
+	Flag = "Slider1",
+	Callback = function(speed)
+		getgenv().farmingSpeed = speed
 	end,
 })
 
-local Button = Tab:CreateButton({
-	Name = "Coin Autofarm [ NORMAL ]",
-	Callback = function()
-	    Rayfield:Notify({
-    Title = "Coin Autofarm [ NORMAL ] Notification",
-    Content = "Your Chance Of Getting Kicked Is 32.42% - Starting Autofarm In 2.2 Seconds",
-    Duration = 10,
-    Image = 69,
-    Actions = {
-        Ignore = {
-            Name = "Okay",
-            Callback = function()
-                print("Chance Of Getting Kicked Using Slow Autofarm Is 32 In 100 - 32.42%")
-            end
-		},
-	},
-})
-        while wait(2.2) do
-		for i,v in pairs(workspaceC) do	    
-		    local vChildren = v:GetChildren()
-		    for i,child in pairs(vChildren) do
-		        if child.Name == "CoinContainer" then
-		            
-		            if child.Coin_Server:FindFirstChild("Coin") ~= nil then
-		                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
-		                else
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+local Toggle = Tab:CreateToggle({
+	Name = "Coin Autofarm",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().coinfarming = true
+		    while getgenv().coinfarming ~= false do
+		        wait(getgenv().farmingSpeed)
+		        for i,v in pairs(workspaceC) do	    
+		            local vChildren = v:GetChildren()
+		            for i,child in pairs(vChildren) do
+		                if child.Name == "CoinContainer" then
+		                    
+		                    if child.Coin_Server:FindFirstChild("Coin") ~= nil then
+		                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
+		                    else
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
                             end
 			            end
 	                end
 		        end
-            end
-	end,
-})
-
-local Button = Tab:CreateButton({
-	Name = "Coin Autofarm [ FAST ]",
-	Callback = function()
-	    Rayfield:Notify({
-    Title = "Coin Autofarm [ FAST ] Notification",
-    Content = "Your Chance Of Getting Kicked Is 92.11% - Starting Autofarm In 1 Second",
-    Duration = 10,
-    Image = 69,
-    Actions = {
-        Ignore = {
-            Name = "Okay",
-            Callback = function()
-                print("Chance Of Getting Kicked Using Slow Autofarm Is 92 In 100 - 92.11%")
-            end
-		},
-	},
-})
-        while wait(1) do
-		for i,v in pairs(workspaceC) do	    
-		    local vChildren = v:GetChildren()
-		    for i,child in pairs(vChildren) do
-		        if child.Name == "CoinContainer" then
-		            
-		            if child.Coin_Server:FindFirstChild("Coin") ~= nil then
-		                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Coin_Server.Coin.CFrame
-		                else
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
-                            end
-			            end
-	                end
-		        end
-            end
+		    end
+            else
+                getgenv().coinfarming = false
+		end
 	end,
 })
 
