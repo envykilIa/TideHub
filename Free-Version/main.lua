@@ -2163,3 +2163,114 @@ local Toggle = Tab:CreateToggle({
 	end,
 })
 end
+
+if game.PlaceId >= 1537690962 then
+    
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "#Tide Hub - Bee Swarm Simulator",
+	LoadingTitle = "Loading #Tide Hub",
+	LoadingSubtitle = "By | fortunatesouls#8803",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil,
+		FileName = "Tide"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "n2QxZaMMtC",
+        	RememberJoins = true
+        },
+	KeySystem = false,
+	KeySettings = {
+		Title = "Tide Key System",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/n2QxZaMMtC)",
+		FileName = "TideKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "#Tide-399499!94-o"
+	}
+})
+
+Rayfield:Notify({
+    Title = "Notification",
+    Content = "There is no zone-bypasser for snowflake autofarm, it is normal for it to respawn at spawn.",
+    Duration = 15,
+    Image = 69,
+    Actions = {
+        Ignore = {
+            Name = "Okay!",
+            Callback = function()
+                print("Snowflake Autofarm - Pressed Okay!")
+            end
+		},
+	},
+})
+
+local Tab = Window:CreateTab("Credits")
+
+local Button = Tab:CreateButton({
+   Name = "Copy Discord Link",
+   Callback = function()
+    setclipboard("https://discord.gg/n2QxZaMMtC")
+   end,
+})
+
+Tab:CreateParagraph({Title = "fortunatesouls#8803", Content = "Main Script Developer / OWNER"})
+
+local Tab = Window:CreateTab("Main")
+
+local Button = Tab:CreateButton({
+	Name = "Claim Hive",
+	Callback = function()
+	    local args = {
+            [1] = 4
+        }
+        game:GetService("ReplicatedStorage").Events.ClaimHive:FireServer(unpack(args))
+        wait(0.05)
+        game:GetService("ReplicatedStorage").Events.RetrievePlayerStats:InvokeServer()
+    end,
+})
+
+local Tab = Window:CreateTab("Farming")
+
+local Toggle = Tab:CreateToggle({
+	Name = "Snowflake Autofarm",
+	CurrentValue = false,
+	Flag = "Toggle1", 
+	Callback = function(Value)
+		if Value then
+		    getgenv().SnowflakeAutofarm = true
+		    while getgenv().SnowflakeAutofarm ~= false do
+		        wait(2)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Particles.Snowflakes.SnowflakePart.CFrame
+                wait(1)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+                wait(3)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+                wait()
+		    end
+        else
+            getgenv().SnowflakeAutofarm = false
+		end
+	end,
+})
+
+local Tab = Window:CreateTab("Settings")
+
+local Paragraph = Tab:CreateParagraph({Title = "!!! READ THIS BEFORE MODIFYING ANY OF THIS !!!", Content = "Turning any of these down will make they're efficiency really shit."})
+
+local Slider = Tab:CreateSlider({
+	Name = "Snowflake Autofarm Teleport Speed",
+	Range = {1, 10},
+	Increment = 1,
+	Suffix = "Snowflake Autofarm Speed",
+	CurrentValue = 5,
+	Flag = "Slider1",
+	Callback = function(Value)
+		getgenv().SnowflakeTeleportTime = Value
+	end,
+})
+end
