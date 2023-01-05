@@ -2164,7 +2164,7 @@ local Toggle = Tab:CreateToggle({
 })
 end
 
-if game.PlaceId >= 1537690962 then
+if game.PlaceId >= (1537690962) then
     
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
