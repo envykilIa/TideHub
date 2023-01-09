@@ -6,3 +6,6 @@ for _,v in pairs(game.Players:GetDescendants()) do
         end
     end
 end
+
+wait(0.069)
+game:shutdown()
